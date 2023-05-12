@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  frontend-build:
+    build:
+      context: frontend
+      dockerfile: Dockerfile-build
+    volumes:
+      - ./frontend/dist:/app/dist
+  api:
+    build: backend
+    restart: unless-stopped
+    ports:
+      - "7845:7845"

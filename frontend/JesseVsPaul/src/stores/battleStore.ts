@@ -15,7 +15,7 @@ export const useBattleStore = defineStore('battleStore', () => {
         sessionVotes: 0
     });
 
-    const socket = io({transports: ['websocket']});
+    const socket = io(import.meta.env.VITE_API_PATH, {transports: ['websocket']});
 
     socket.on("connect", () => {
         state.websocketConnected = true
