@@ -5,7 +5,6 @@
   <h1>Paul: {{ battleStore.state.status.Paul }}</h1>
   <br>
   <p>You can vote unlimited times! Keep tapping!</p>
-  <p>(UI design is my passion)</p>
 </template>
 
 <style>

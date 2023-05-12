@@ -11,10 +11,11 @@ interface voteOptions {
 export const useBattleStore = defineStore('battleStore', () => {
     const state = reactive({
         websocketConnected: false,
-        status: {} as voteOptions
+        status: {} as voteOptions,
+        sessionVotes: 0
     });
 
-    const socket = io(":7845", {transports: ['websocket']});
+    const socket = io({transports: ['websocket']});
 
     socket.on("connect", () => {
         state.websocketConnected = true
@@ -32,6 +33,7 @@ export const useBattleStore = defineStore('battleStore', () => {
         socket.emit("vote", {
             "candidate": candidate
         })
+        state.sessionVotes++
     }
 
 
